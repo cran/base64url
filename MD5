@@ -1,0 +1,14 @@
+2d78cd9c8a6e11e033314bfbaac1fef9 *DESCRIPTION
+e603cbe9e859e1c71888e96906e395ef *NAMESPACE
+09028211d62c30cf59cc24510c0793c7 *NEWS.md
+e0150860ed57f812997eee491bfeebe7 *R/base64.R
+363ea75bccd14c36da3a4f958709beff *README.md
+fc29848e407db1ae9588446a20db7af8 *build/vignette.rds
+0ead74ca1f2db50556d130908a3d01ce *inst/doc/Benchmarks.R
+b8e0cce251fcb8280c4859ff1b02c4e9 *inst/doc/Benchmarks.Rmd
+f5ba0ea371dea9326d202bd313e0a31f *inst/doc/Benchmarks.html
+b5a307f8d14c9898a03c39d438f46239 *man/base64_urlencode.Rd
+7654a9fe2d70b3974fc9caa79a23d9c7 *src/base64.c
+c62047c9d0508b07ad001a6c12e60507 *tests/testthat.R
+979d1b5d3c509c191779dbd26a0e9c6f *tests/testthat/test_base64.R
+b8e0cce251fcb8280c4859ff1b02c4e9 *vignettes/Benchmarks.Rmd
