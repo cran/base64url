@@ -12,7 +12,7 @@
 
 <meta name="author" content="Michel Lang" />
 
-<meta name="date" content="2016-10-04" />
+<meta name="date" content="2017-02-14" />
 
 <title>Benchmark</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Benchmark</h1>
 <h4 class="author"><em>Michel Lang</em></h4>
-<h4 class="date"><em>2016-10-04</em></h4>
+<h4 class="date"><em>2017-02-14</em></h4>
 
 
 
@@ -89,10 +89,10 @@ x =<span class="st"> &quot;plain text&quot;</span>
   <span class="dt">openssl =</span> <span class="kw">base64_encode</span>(x)
 )</code></pre></div>
 <pre><code>## Unit: nanoseconds
-##       expr  min     lq     mean median     uq    max neval cld
-##  base64url  598  719.5  1222.75  861.5  961.5  28170   100 a  
-##  base64enc 3252 3409.0  5345.50 3920.0 4218.0 113086   100  b 
-##    openssl 8964 9305.5 10912.67 9465.5 9980.0  64796   100   c</code></pre>
+##       expr  min     lq     mean  median      uq    max neval
+##  base64url  598  769.5  1540.96   943.5  1018.5  30277   100
+##  base64enc 3264 3516.0  6035.51  4011.5  4323.5 120576   100
+##    openssl 9329 9845.5 11977.05 10171.0 10801.5 110423   100</code></pre>
 </div>
 <div id="decoding-of-a-single-string" class="section level2">
 <h2>Decoding of a single string</h2>
@@ -103,17 +103,17 @@ x =<span class="st"> &quot;plain text&quot;</span>
   <span class="dt">openssl =</span> <span class="kw">rawToChar</span>(<span class="kw">base64_decode</span>(x))
 )</code></pre></div>
 <pre><code>## Unit: nanoseconds
-##       expr   min      lq     mean  median      uq    max neval cld
-##  base64url   725   833.0  1365.00  1115.5  1310.5  15764   100 a  
-##  base64enc  4804  5177.0  7419.04  5835.0  6234.5  64962   100  b 
-##    openssl 18412 18933.5 21839.90 19340.5 20524.5 125189   100   c</code></pre>
+##       expr   min      lq     mean  median      uq    max neval
+##  base64url   712   862.5  1425.16  1102.5  1272.5  22033   100
+##  base64enc  4728  4996.5  7176.57  5781.5  6137.5  63003   100
+##    openssl 17927 18564.0 21402.33 18947.5 20211.0 128580   100</code></pre>
 </div>
 <div id="encoding-and-decoding-of-character-vectors" class="section level2">
 <h2>Encoding and decoding of character vectors</h2>
 <p>Here, the task has changed from encoding/decoding a single string to processing multiple strings stored inside a character vector. First, we create a small utility function which returns <code>n</code> random strings with a random number of characters (between 1 and 32) each.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rand =<span class="st"> </span>function(n, <span class="dt">min =</span> <span class="dv">1</span>, <span class="dt">max =</span> <span class="dv">32</span>) {
-  chars =<span class="st"> </span><span class="kw">c</span>(letters, LETTERS, <span class="kw">as.character</span>(<span class="dv">0</span>:<span class="dv">9</span>), <span class="kw">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;:&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;+&quot;</span>, <span class="st">&quot;-&quot;</span>, <span class="st">&quot;*&quot;</span>, <span class="st">&quot;/&quot;</span>))
-  <span class="kw">replicate</span>(n, <span class="kw">paste0</span>(<span class="kw">sample</span>(chars, <span class="kw">sample</span>(min:max, <span class="dv">1</span>), <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dt">collapse =</span> <span class="st">&quot;&quot;</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rand =<span class="st"> </span><span class="cf">function</span>(n, <span class="dt">min =</span> <span class="dv">1</span>, <span class="dt">max =</span> <span class="dv">32</span>) {
+  chars =<span class="st"> </span><span class="kw">c</span>(letters, LETTERS, <span class="kw">as.character</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>), <span class="kw">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;:&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;+&quot;</span>, <span class="st">&quot;-&quot;</span>, <span class="st">&quot;*&quot;</span>, <span class="st">&quot;/&quot;</span>))
+  <span class="kw">replicate</span>(n, <span class="kw">paste0</span>(<span class="kw">sample</span>(chars, <span class="kw">sample</span>(min<span class="op">:</span>max, <span class="dv">1</span>), <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dt">collapse =</span> <span class="st">&quot;&quot;</span>))
 }
 <span class="kw">set.seed</span>(<span class="dv">1</span>)
 <span class="kw">rand</span>(<span class="dv">10</span>)</code></pre></div>
@@ -123,20 +123,20 @@ x =<span class="st"> &quot;plain text&quot;</span>
 ##  [7] &quot;XiqjqeS&quot;                       &quot;13FC3PTys/RoiG:P*YyDkaXhES/IH&quot;
 ##  [9] &quot;0FJopP&quot;                        &quot;fcS,PMK*JVPqrYFmZh7&quot;</code></pre>
 <p>Only <code>base64url</code> is vectorized for string input, the alternative implementations need wrappers to process character vectors:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">base64enc_encode =<span class="st"> </span>function(x) {
-  <span class="kw">vapply</span>(x, function(x) <span class="kw">base64encode</span>(<span class="kw">charToRaw</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">base64enc_encode =<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">base64encode</span>(<span class="kw">charToRaw</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
 }
 
-openssl_encode =<span class="st"> </span>function(x) {
-  <span class="kw">vapply</span>(x, function(x) <span class="kw">base64_encode</span>(x), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
+openssl_encode =<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">base64_encode</span>(x), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
 }
 
-base64enc_decode =<span class="st"> </span>function(x) {
-  <span class="kw">vapply</span>(x, function(x) <span class="kw">rawToChar</span>(<span class="kw">base64decode</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
+base64enc_decode =<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">rawToChar</span>(<span class="kw">base64decode</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
 }
 
-openssl_decode =<span class="st"> </span>function(x) {
-  <span class="kw">vapply</span>(x, function(x) <span class="kw">rawToChar</span>(<span class="kw">base64_decode</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
+openssl_decode =<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">rawToChar</span>(<span class="kw">base64_decode</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
 }</code></pre></div>
 <p>The following benchmark measures the runtime to encode 1000 random strings and then decode them again:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
@@ -147,14 +147,14 @@ x =<span class="st"> </span><span class="kw">rand</span>(<span class="dv">1000</
   <span class="dt">openssl =</span> <span class="kw">openssl_decode</span>(<span class="kw">openssl_encode</span>(x))
 )</code></pre></div>
 <pre><code>## Unit: microseconds
-##       expr       min         lq       mean     median        uq       max
-##  base64url   215.029   222.9475   244.0447   238.1795   257.464   358.599
-##  base64enc  7185.749  7349.0650  7951.7801  7927.6675  8348.159 10157.637
-##    openssl 21620.231 22093.2525 23687.5476 22828.9190 23330.632 86346.942
-##  neval cld
-##    100 a  
-##    100  b 
-##    100   c</code></pre>
+##       expr       min        lq       mean     median        uq       max
+##  base64url   216.926   267.953   351.5029   348.9325   421.912   594.132
+##  base64enc  7139.334  8248.340  9306.8484  9067.0465 10182.337 13086.887
+##    openssl 22105.490 24446.610 27098.2167 25850.6455 29033.659 60137.814
+##  neval
+##    100
+##    100
+##    100</code></pre>
 </div>
 
 
