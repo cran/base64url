@@ -4,7 +4,7 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
@@ -12,7 +12,7 @@
 
 <meta name="author" content="Michel Lang" />
 
-<meta name="date" content="2017-02-14" />
+<meta name="date" content="2017-06-13" />
 
 <title>Benchmark</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Benchmark</h1>
 <h4 class="author"><em>Michel Lang</em></h4>
-<h4 class="date"><em>2017-02-14</em></h4>
+<h4 class="date"><em>2017-06-13</em></h4>
 
 
 
@@ -89,10 +89,10 @@ x =<span class="st"> &quot;plain text&quot;</span>
   <span class="dt">openssl =</span> <span class="kw">base64_encode</span>(x)
 )</code></pre></div>
 <pre><code>## Unit: nanoseconds
-##       expr  min     lq     mean  median      uq    max neval
-##  base64url  598  769.5  1540.96   943.5  1018.5  30277   100
-##  base64enc 3264 3516.0  6035.51  4011.5  4323.5 120576   100
-##    openssl 9329 9845.5 11977.05 10171.0 10801.5 110423   100</code></pre>
+##       expr   min      lq      mean  median      uq      max neval cld
+##  base64url   611   680.0   1536.88   856.0  1000.5    39316   100   a
+##  base64enc  1389  1661.5 174380.10  2209.5  2531.5 16820882   100   a
+##    openssl 10218 10706.0  12939.33 11144.0 11711.0    98264   100   a</code></pre>
 </div>
 <div id="decoding-of-a-single-string" class="section level2">
 <h2>Decoding of a single string</h2>
@@ -103,10 +103,10 @@ x =<span class="st"> &quot;plain text&quot;</span>
   <span class="dt">openssl =</span> <span class="kw">rawToChar</span>(<span class="kw">base64_decode</span>(x))
 )</code></pre></div>
 <pre><code>## Unit: nanoseconds
-##       expr   min      lq     mean  median      uq    max neval
-##  base64url   712   862.5  1425.16  1102.5  1272.5  22033   100
-##  base64enc  4728  4996.5  7176.57  5781.5  6137.5  63003   100
-##    openssl 17927 18564.0 21402.33 18947.5 20211.0 128580   100</code></pre>
+##       expr   min      lq     mean  median      uq    max neval cld
+##  base64url   707   862.0  1263.68  1161.5  1250.5  17633   100 a  
+##  base64enc  4805  5141.0  6850.86  5753.5  6039.0 109692   100  b 
+##    openssl 19169 19632.5 21585.91 19931.5 20854.0 104662   100   c</code></pre>
 </div>
 <div id="encoding-and-decoding-of-character-vectors" class="section level2">
 <h2>Encoding and decoding of character vectors</h2>
@@ -147,14 +147,14 @@ x =<span class="st"> </span><span class="kw">rand</span>(<span class="dv">1000</
   <span class="dt">openssl =</span> <span class="kw">openssl_decode</span>(<span class="kw">openssl_encode</span>(x))
 )</code></pre></div>
 <pre><code>## Unit: microseconds
-##       expr       min        lq       mean     median        uq       max
-##  base64url   216.926   267.953   351.5029   348.9325   421.912   594.132
-##  base64enc  7139.334  8248.340  9306.8484  9067.0465 10182.337 13086.887
-##    openssl 22105.490 24446.610 27098.2167 25850.6455 29033.659 60137.814
-##  neval
-##    100
-##    100
-##    100</code></pre>
+##       expr       min        lq       mean    median        uq        max
+##  base64url   203.969   271.417   371.5827   349.551   447.294    912.724
+##  base64enc  6315.815  6873.980  7805.2762  7560.447  8360.947  13229.642
+##    openssl 25749.224 27296.567 29627.6411 28116.323 29651.793 111755.171
+##  neval cld
+##    100 a  
+##    100  b 
+##    100   c</code></pre>
 </div>
 
 
@@ -164,7 +164,7 @@ x =<span class="st"> </span><span class="kw">rand</span>(<span class="dv">1000</
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
