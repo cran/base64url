@@ -1,4 +1,4 @@
-## ----include=FALSE-------------------------------------------------------
+## ----include=FALSE,cache=FALSE-------------------------------------------
 do.eval = requireNamespace("microbenchmark", quietly = TRUE)
 
 ## ---- eval=do.eval-------------------------------------------------------

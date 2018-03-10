@@ -12,7 +12,7 @@
 
 <meta name="author" content="Michel Lang" />
 
-<meta name="date" content="2017-06-13" />
+<meta name="date" content="2018-03-09" />
 
 <title>Benchmark</title>
 
@@ -20,46 +20,256 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 </head>
 
@@ -70,87 +280,87 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Benchmark</h1>
 <h4 class="author"><em>Michel Lang</em></h4>
-<h4 class="date"><em>2017-06-13</em></h4>
+<h4 class="date"><em>2018-03-09</em></h4>
 
 
 
 <p>This small benchmark compares the performance of the base64 encoding/decoding in package <code>base64url</code> with the implementations in the packages <a href="https://cran.r-project.org/package=base64enc"><code>base64enc</code></a> and <a href="https://cran.r-project.org/package=openssl"><code>openssl</code></a>.</p>
 <div id="encoding-of-a-single-string" class="section level2">
 <h2>Encoding of a single string</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(base64url)
-<span class="kw">library</span>(base64enc)
-<span class="kw">library</span>(openssl)
-<span class="kw">library</span>(microbenchmark)
-
-x =<span class="st"> &quot;plain text&quot;</span>
-<span class="kw">microbenchmark</span>(
-  <span class="dt">base64url =</span> <span class="kw">base64_urlencode</span>(x),
-  <span class="dt">base64enc =</span> <span class="kw">base64encode</span>(<span class="kw">charToRaw</span>(x)),
-  <span class="dt">openssl =</span> <span class="kw">base64_encode</span>(x)
-)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(base64url)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(base64enc)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(openssl)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">library</span>(microbenchmark)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">x =<span class="st"> &quot;plain text&quot;</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">microbenchmark</span>(</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  <span class="dt">base64url =</span> <span class="kw">base64_urlencode</span>(x),</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">  <span class="dt">base64enc =</span> <span class="kw">base64encode</span>(<span class="kw">charToRaw</span>(x)),</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="dt">openssl =</span> <span class="kw">base64_encode</span>(x)</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">)</a></code></pre></div>
 <pre><code>## Unit: nanoseconds
 ##       expr   min      lq      mean  median      uq      max neval cld
-##  base64url   611   680.0   1536.88   856.0  1000.5    39316   100   a
-##  base64enc  1389  1661.5 174380.10  2209.5  2531.5 16820882   100   a
-##    openssl 10218 10706.0  12939.33 11144.0 11711.0    98264   100   a</code></pre>
+##  base64url   512   590.5    971.53   769.0   884.5    19845   100   a
+##  base64enc  1074  1245.0 108005.33  1647.5  1823.5 10529387   100   a
+##    openssl 12793 13099.5  15090.23 13359.5 13767.0    97667   100   a</code></pre>
 </div>
 <div id="decoding-of-a-single-string" class="section level2">
 <h2>Decoding of a single string</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> &quot;N0JBLlRaUTp1bi5KOW4xWStNWEJoLHRQaDZ3&quot;</span>
-<span class="kw">microbenchmark</span>(
-  <span class="dt">base64url =</span> <span class="kw">base64_urldecode</span>(x),
-  <span class="dt">base64enc =</span> <span class="kw">rawToChar</span>(<span class="kw">base64decode</span>(x)),
-  <span class="dt">openssl =</span> <span class="kw">rawToChar</span>(<span class="kw">base64_decode</span>(x))
-)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">x =<span class="st"> &quot;N0JBLlRaUTp1bi5KOW4xWStNWEJoLHRQaDZ3&quot;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">microbenchmark</span>(</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="dt">base64url =</span> <span class="kw">base64_urldecode</span>(x),</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="dt">base64enc =</span> <span class="kw">rawToChar</span>(<span class="kw">base64decode</span>(x)),</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="dt">openssl =</span> <span class="kw">rawToChar</span>(<span class="kw">base64_decode</span>(x))</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">)</a></code></pre></div>
 <pre><code>## Unit: nanoseconds
-##       expr   min      lq     mean  median      uq    max neval cld
-##  base64url   707   862.0  1263.68  1161.5  1250.5  17633   100 a  
-##  base64enc  4805  5141.0  6850.86  5753.5  6039.0 109692   100  b 
-##    openssl 19169 19632.5 21585.91 19931.5 20854.0 104662   100   c</code></pre>
+##       expr   min    lq     mean  median      uq    max neval cld
+##  base64url   493   577   929.30   726.5  1035.5  13151   100 a  
+##  base64enc  3381  3585  4843.14  4236.0  4561.5  70327   100  b 
+##    openssl 19140 19594 21121.08 19912.0 20212.0 102854   100   c</code></pre>
 </div>
 <div id="encoding-and-decoding-of-character-vectors" class="section level2">
 <h2>Encoding and decoding of character vectors</h2>
 <p>Here, the task has changed from encoding/decoding a single string to processing multiple strings stored inside a character vector. First, we create a small utility function which returns <code>n</code> random strings with a random number of characters (between 1 and 32) each.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rand =<span class="st"> </span><span class="cf">function</span>(n, <span class="dt">min =</span> <span class="dv">1</span>, <span class="dt">max =</span> <span class="dv">32</span>) {
-  chars =<span class="st"> </span><span class="kw">c</span>(letters, LETTERS, <span class="kw">as.character</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>), <span class="kw">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;:&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;+&quot;</span>, <span class="st">&quot;-&quot;</span>, <span class="st">&quot;*&quot;</span>, <span class="st">&quot;/&quot;</span>))
-  <span class="kw">replicate</span>(n, <span class="kw">paste0</span>(<span class="kw">sample</span>(chars, <span class="kw">sample</span>(min<span class="op">:</span>max, <span class="dv">1</span>), <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dt">collapse =</span> <span class="st">&quot;&quot;</span>))
-}
-<span class="kw">set.seed</span>(<span class="dv">1</span>)
-<span class="kw">rand</span>(<span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">rand =<span class="st"> </span><span class="cf">function</span>(n, <span class="dt">min =</span> <span class="dv">1</span>, <span class="dt">max =</span> <span class="dv">32</span>) {</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  chars =<span class="st"> </span><span class="kw">c</span>(letters, LETTERS, <span class="kw">as.character</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>), <span class="kw">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;:&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;+&quot;</span>, <span class="st">&quot;-&quot;</span>, <span class="st">&quot;*&quot;</span>, <span class="st">&quot;/&quot;</span>))</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="kw">replicate</span>(n, <span class="kw">paste0</span>(<span class="kw">sample</span>(chars, <span class="kw">sample</span>(min<span class="op">:</span>max, <span class="dv">1</span>), <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dt">collapse =</span> <span class="st">&quot;&quot;</span>))</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw">set.seed</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw">rand</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>##  [1] &quot;zN.n9+TRe&quot;                     &quot;mVA1IX/&quot;                      
 ##  [3] &quot;1,oSisAaA8xHP&quot;                 &quot;m5U2hXC4S2MK2bGY&quot;             
 ##  [5] &quot;G7EqegvJTC.uFwSrH0f8x5x&quot;       &quot;G97A1-DXBw0&quot;                  
 ##  [7] &quot;XiqjqeS&quot;                       &quot;13FC3PTys/RoiG:P*YyDkaXhES/IH&quot;
 ##  [9] &quot;0FJopP&quot;                        &quot;fcS,PMK*JVPqrYFmZh7&quot;</code></pre>
 <p>Only <code>base64url</code> is vectorized for string input, the alternative implementations need wrappers to process character vectors:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">base64enc_encode =<span class="st"> </span><span class="cf">function</span>(x) {
-  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">base64encode</span>(<span class="kw">charToRaw</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
-}
-
-openssl_encode =<span class="st"> </span><span class="cf">function</span>(x) {
-  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">base64_encode</span>(x), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
-}
-
-base64enc_decode =<span class="st"> </span><span class="cf">function</span>(x) {
-  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">rawToChar</span>(<span class="kw">base64decode</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
-}
-
-openssl_decode =<span class="st"> </span><span class="cf">function</span>(x) {
-  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">rawToChar</span>(<span class="kw">base64_decode</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)
-}</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">base64enc_encode =<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">base64encode</span>(<span class="kw">charToRaw</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">openssl_encode =<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">base64_encode</span>(x), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">base64enc_decode =<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">rawToChar</span>(<span class="kw">base64decode</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">}</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">openssl_decode =<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">  <span class="kw">vapply</span>(x, <span class="cf">function</span>(x) <span class="kw">rawToChar</span>(<span class="kw">base64_decode</span>(x)), <span class="ot">NA_character_</span>, <span class="dt">USE.NAMES =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">}</a></code></pre></div>
 <p>The following benchmark measures the runtime to encode 1000 random strings and then decode them again:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
-x =<span class="st"> </span><span class="kw">rand</span>(<span class="dv">1000</span>)
-<span class="kw">microbenchmark</span>(
-  <span class="dt">base64url =</span> <span class="kw">base64_urldecode</span>(<span class="kw">base64_urlencode</span>(x)),
-  <span class="dt">base64enc =</span> <span class="kw">base64enc_decode</span>(<span class="kw">base64enc_encode</span>(x)),
-  <span class="dt">openssl =</span> <span class="kw">openssl_decode</span>(<span class="kw">openssl_encode</span>(x))
-)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">x =<span class="st"> </span><span class="kw">rand</span>(<span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw">microbenchmark</span>(</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="dt">base64url =</span> <span class="kw">base64_urldecode</span>(<span class="kw">base64_urlencode</span>(x)),</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="dt">base64enc =</span> <span class="kw">base64enc_decode</span>(<span class="kw">base64enc_encode</span>(x)),</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="dt">openssl =</span> <span class="kw">openssl_decode</span>(<span class="kw">openssl_encode</span>(x))</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">)</a></code></pre></div>
 <pre><code>## Unit: microseconds
 ##       expr       min        lq       mean    median        uq        max
-##  base64url   203.969   271.417   371.5827   349.551   447.294    912.724
-##  base64enc  6315.815  6873.980  7805.2762  7560.447  8360.947  13229.642
-##    openssl 25749.224 27296.567 29627.6411 28116.323 29651.793 111755.171
+##  base64url   192.792   199.242   233.7204   226.315   259.414    387.039
+##  base64enc  5490.085  5641.812  5921.4435  5700.369  6048.102   8864.857
+##    openssl 32889.338 33628.666 35417.5657 34204.795 35348.879 119960.617
 ##  neval cld
 ##    100 a  
 ##    100  b 
