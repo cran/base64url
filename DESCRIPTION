@@ -1,7 +1,7 @@
 Package: base64url
 Type: Package
 Title: Fast and URL-Safe Base64 Encoder and Decoder
-Version: 1.3
+Version: 1.4
 Authors@R: c(
     person("Michel", "Lang", NULL, "michellang@gmail.com",
       role = c("cre", "aut"), comment = c(ORCID = "0000-0001-9754-0393")),
@@ -25,10 +25,10 @@ Suggests: base64enc, checkmate, knitr, microbenchmark, openssl,
         rmarkdown, testthat
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
-Packaged: 2018-03-09 14:45:33 UTC; lang
+Packaged: 2018-05-14 09:41:23 UTC; lang
 Author: Michel Lang [cre, aut] (<https://orcid.org/0000-0001-9754-0393>),
   Apache Foundation [ctb, cph],
   Free Software Foundation [ctb, cph]
 Maintainer: Michel Lang <michellang@gmail.com>
 Repository: CRAN
-Date/Publication: 2018-03-10 16:20:22 UTC
+Date/Publication: 2018-05-14 09:58:28 UTC

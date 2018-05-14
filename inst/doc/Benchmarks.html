@@ -12,7 +12,7 @@
 
 <meta name="author" content="Michel Lang" />
 
-<meta name="date" content="2018-03-09" />
+<meta name="date" content="2018-05-14" />
 
 <title>Benchmark</title>
 
@@ -280,7 +280,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Benchmark</h1>
 <h4 class="author"><em>Michel Lang</em></h4>
-<h4 class="date"><em>2018-03-09</em></h4>
+<h4 class="date"><em>2018-05-14</em></h4>
 
 
 
@@ -299,10 +299,10 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="dt">openssl =</span> <span class="kw">base64_encode</span>(x)</a>
 <a class="sourceLine" id="cb1-11" data-line-number="11">)</a></code></pre></div>
 <pre><code>## Unit: nanoseconds
-##       expr   min      lq      mean  median      uq      max neval cld
-##  base64url   512   590.5    971.53   769.0   884.5    19845   100   a
-##  base64enc  1074  1245.0 108005.33  1647.5  1823.5 10529387   100   a
-##    openssl 12793 13099.5  15090.23 13359.5 13767.0    97667   100   a</code></pre>
+##       expr   min      lq     mean  median      uq    max neval
+##  base64url   408   461.5   853.52   698.0   782.5  20430   100
+##  base64enc  1199  1367.0  3114.89  1865.0  1983.5 139937   100
+##    openssl 13188 13536.0 15256.11 13749.5 14081.5 135871   100</code></pre>
 </div>
 <div id="decoding-of-a-single-string" class="section level2">
 <h2>Decoding of a single string</h2>
@@ -313,10 +313,10 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="dt">openssl =</span> <span class="kw">rawToChar</span>(<span class="kw">base64_decode</span>(x))</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">)</a></code></pre></div>
 <pre><code>## Unit: nanoseconds
-##       expr   min    lq     mean  median      uq    max neval cld
-##  base64url   493   577   929.30   726.5  1035.5  13151   100 a  
-##  base64enc  3381  3585  4843.14  4236.0  4561.5  70327   100  b 
-##    openssl 19140 19594 21121.08 19912.0 20212.0 102854   100   c</code></pre>
+##       expr   min      lq     mean  median    uq    max neval
+##  base64url   423   485.0  1104.57   655.5   923  40442   100
+##  base64enc  1504  1681.5  2879.92  2225.5  2546  76432   100
+##    openssl 19066 19643.0 21264.27 19915.5 20281 119636   100</code></pre>
 </div>
 <div id="encoding-and-decoding-of-character-vectors" class="section level2">
 <h2>Encoding and decoding of character vectors</h2>
@@ -357,14 +357,14 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="dt">openssl =</span> <span class="kw">openssl_decode</span>(<span class="kw">openssl_encode</span>(x))</a>
 <a class="sourceLine" id="cb8-7" data-line-number="7">)</a></code></pre></div>
 <pre><code>## Unit: microseconds
-##       expr       min        lq       mean    median        uq        max
-##  base64url   192.792   199.242   233.7204   226.315   259.414    387.039
-##  base64enc  5490.085  5641.812  5921.4435  5700.369  6048.102   8864.857
-##    openssl 32889.338 33628.666 35417.5657 34204.795 35348.879 119960.617
-##  neval cld
-##    100 a  
-##    100  b 
-##    100   c</code></pre>
+##       expr       min         lq      mean     median        uq       max
+##  base64url   214.031   222.0655   270.415   260.3725   311.967   441.127
+##  base64enc  3613.444  3974.8940  4228.395  4058.2495  4157.485 11094.540
+##    openssl 34166.572 35453.3810 36002.175 35794.9835 36349.533 42507.878
+##  neval
+##    100
+##    100
+##    100</code></pre>
 </div>
 
 
